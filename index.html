@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-ca">
+<head>
+  <meta charset="utf-8">
+  <title>Exercise 4</title>
+  <!-- INSPIRED BY THE CODEPEN FOUND HERE: http://codepen.io/lbebber/pen/rawQKR -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<h1>Gooey Menu</h1>
+
+<nav class="menu">
+  <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open"/>
+  <label class="menu-open-button" for="menu-open">
+    <span class="hamburger hamburger-1"></span>
+    <span class="hamburger hamburger-2"></span>
+    <span class="hamburger hamburger-3"></span>
+  </label>
+  
+  <a href="#folder" class="menu-item"> <i class="icon-folder"></i> </a>
+  <a href="#wrench" class="menu-item"> <i class="icon-wrench"></i> </a>
+  <a href="#magnify" class="menu-item"> <i class="icon-zoom-in"></i> </a>
+  <a href="#trash" class="menu-item"> <i class="icon-trash"></i> </a>
+</nav>
+
+<main>
+
+  <h2 id="folder">Folder</h2>
+
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias tenetur minus voluptatibus veniam ab culpa! Beatae in quaerat fugit nam quisquam autem, atque voluptate pariatur distinctio cum voluptas, dolores ipsam! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid modi minus atque, maiores sunt non vel in, error nobis et! Fugit adipisci, alias. Quisquam, molestiae quaerat dicta minima repudiandae asperiores. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit expedita labore perferendis aliquid earum in cupiditate, repudiandae ipsum vel maiores repellat eligendi velit praesentium est, sunt omnis, natus rem maxime. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni suscipit, eligendi! Nesciunt ratione magni cum, sunt. Aut cumque deserunt optio assumenda, mollitia non ratione rem cum dignissimos unde. Ducimus, aut!</p>
+
+  <h2 id="wrench">Wrench</h2>
+
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias tenetur minus voluptatibus veniam ab culpa! Beatae in quaerat fugit nam quisquam autem, atque voluptate pariatur distinctio cum voluptas, dolores ipsam! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid modi minus atque, maiores sunt non vel in, error nobis et! Fugit adipisci, alias. Quisquam, molestiae quaerat dicta minima repudiandae asperiores. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi facere laudantium quasi obcaecati beatae error aliquam, quaerat perspiciatis, fugit, consectetur vitae. Consectetur ea doloremque minima, aperiam velit nam nobis accusamus? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque voluptatum mollitia quis eveniet! Id ipsam inventore expedita qui totam veritatis reiciendis quasi. Quidem quod dolorem minus natus mollitia, numquam, sapiente?</p>
+
+  <h2 id="magnify">Magnify</h2>
+
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias tenetur minus voluptatibus veniam ab culpa! Beatae in quaerat fugit nam quisquam autem, atque voluptate pariatur distinctio cum voluptas, dolores ipsam! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid modi minus atque, maiores sunt non vel in, error nobis et! Fugit adipisci, alias. Quisquam, molestiae quaerat dicta minima repudiandae asperiores. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur temporibus, pariatur quibusdam. Pariatur eveniet nam eos quasi aliquam architecto sunt, voluptatibus, ea, aliquid iste aperiam at ut quas. Ipsum, voluptate? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut necessitatibus facere itaque minus, quos illo autem ad, libero similique sapiente deleniti molestiae quaerat, sit et adipisci vel asperiores optio mollitia.</p>
+
+  <h2 id="trash">Trash</h2>
+
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias tenetur minus voluptatibus veniam ab culpa! Beatae in quaerat fugit nam quisquam autem, atque voluptate pariatur distinctio cum voluptas, dolores ipsam! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid modi minus atque, maiores sunt non vel in, error nobis et! Fugit adipisci, alias. Quisquam, molestiae quaerat dicta minima repudiandae asperiores. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit hic, suscipit numquam quod saepe. Eveniet, unde. Quia nihil fuga, eius vel veniam suscipit, rerum distinctio molestias saepe non illo sint. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga aspernatur iusto quas natus ex odit, reiciendis praesentium amet repellat, numquam, necessitatibus accusamus quisquam dolorem, nostrum dolorum culpa cumque blanditiis. Delectus.</p>
+
+</main><!-- /main -->
+
+
+<!-- filters -->
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+    <defs>
+      <filter id="shadowed-goo">
+          
+          <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" />
+          <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+          <feGaussianBlur in="goo" stdDeviation="3" result="shadow" />
+          <feColorMatrix in="shadow" mode="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 -0.2" result="shadow" />
+          <feOffset in="shadow" dx="1" dy="1" result="shadow" />
+          <feComposite in2="shadow" in="goo" result="goo" />
+          <feComposite in2="goo" in="SourceGraphic" result="mix" />
+      </filter>
+      <filter id="goo">
+          <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" />
+          <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+          <feComposite in2="goo" in="SourceGraphic" result="mix" />
+      </filter>
+    </defs>
+</svg>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
