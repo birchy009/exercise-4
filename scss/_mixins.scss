@@ -1,0 +1,14 @@
+// Mixins
+
+@mixin zero{
+  margin: 0;
+  padding: 0;
+}
+
+@mixin font {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+@mixin transition($time, $ease) {
+	transition: all $time, $ease;
+}
