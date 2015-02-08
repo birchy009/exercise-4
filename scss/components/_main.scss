@@ -17,8 +17,6 @@ h1 {
 
 %goo {
   filter: url('#shadowed-goo');
-  // debug 
-  //background:rgba(255,0,0,0.2);
 }
 
 //                                                                        NAV
@@ -89,7 +87,7 @@ $hamburger-spacing: 10px;
 .menu {
   @extend %goo;
   $width: 650px;
-  $height: 150px;
+  $height: 650px;
   position: absolute;
   left: 5%;
   top: 0;
@@ -135,27 +133,12 @@ $hamburger-spacing: 10px;
   transform: scale(0.8,0.8) translate3d(0,0,0);
 }
 
-.menu-open:checked~.menu-item {
-  transition-timing-function: cubic-bezier(0.165, 0.840, 0.440, 1.000);
-  @for $i from 1 through $menu-items{
-
-    &:nth-child(#{$i+2}){
-      transition-duration: 90ms+(80ms*$i);
-      transform: translate3d((80px*$i),0,0);
-    }
-  }
-}
-
 svg {
   display: none;
 }
 
 //                                                                                  CONTENT
 
-main {
-  padding: 0 25%;
-  margin-top: 3em;
-}
 
 main h2,
 main p{
@@ -164,4 +147,43 @@ main p{
 
 main p {
   margin-bottom: 5em;
+}
+
+//                                                                                   QUERIES
+
+@media #{$mobile} {
+  .menu-open:checked~.menu-item {
+    transition-timing-function: cubic-bezier(0.165, 0.840, 0.440, 1.000);
+    @for $i from 1 through $menu-items{
+      &:nth-child(#{$i+2}){
+        transition-duration: 90ms+(80ms*$i);
+        transform: translate3d(0,(80px*$i),0);
+      }
+    }
+  }
+  main {
+    padding: 0 20%;
+    margin-top: 3em;
+  }
+  .menu {
+    left: 10%;
+  }
+}
+
+@media #{$desktop-small} {
+  .menu-open:checked~.menu-item {
+    transition-timing-function: cubic-bezier(0.165, 0.840, 0.440, 1.000);
+    @for $i from 1 through $menu-items{
+      &:nth-child(#{$i+2}){
+        transition-duration: 90ms+(80ms*$i);
+        transform: translate3d((80px*$i),0,0);
+      }
+    }
+  }
+  main {
+    padding: 0 25%;
+  }
+  .menu {
+    left: 5%;
+  }
 }
